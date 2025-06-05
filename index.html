@@ -1,0 +1,191 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Загрузка MRPS</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      background: url('https://i.ibb.co/SwQ1Rfy5/20250126005214-1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Montserrat', 'Segoe UI', sans-serif;
+      color: #fff;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      user-select: none;
+    }
+
+    .logo {
+      font-size: 56px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      text-shadow:
+        0 0 8px rgba(0, 191, 255, 0.8),
+        0 0 20px rgba(0, 191, 255, 0.6),
+        0 0 30px rgba(0, 191, 255, 0.4);
+      margin-bottom: 40px;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow:
+          0 0 8px rgba(0, 191, 255, 0.8),
+          0 0 20px rgba(0, 191, 255, 0.6),
+          0 0 30px rgba(0, 191, 255, 0.4);
+      }
+      to {
+        text-shadow:
+          0 0 15px rgba(0, 191, 255, 1),
+          0 0 40px rgba(0, 191, 255, 0.8),
+          0 0 60px rgba(0, 191, 255, 0.6);
+      }
+    }
+
+    .progress-bar {
+      width: 70%;
+      height: 14px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0, 191, 255, 0.4) inset;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #00bfff, #1e90ff, #00bfff);
+      border-radius: 10px;
+      animation: loading 6s ease-in-out infinite;
+      box-shadow:
+        0 0 8px #00bfff,
+        0 0 20px #1e90ff;
+    }
+
+    @keyframes loading {
+      0% { width: 0%; }
+      50% { width: 85%; }
+      100% { width: 0%; }
+    }
+
+    .info {
+      font-size: 16px;
+      opacity: 0.85;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+      margin-bottom: 60px;
+      font-weight: 500;
+    }
+
+    .marquee-container {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      height: 80px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.45);
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
+      border-top: 1px solid rgba(0, 191, 255, 0.3);
+      border-bottom: 1px solid rgba(0, 191, 255, 0.3);
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+      user-select: none;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 40s linear infinite;
+    }
+
+    .marquee-track img {
+      height: 55px;
+      margin: 0 12px;
+      filter: drop-shadow(0 0 4px #00bfff);
+      pointer-events: none;
+      transition: transform 0.3s ease;
+    }
+    .marquee-track img:hover {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 8px #1e90ff);
+      cursor: default;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="logo">Metrostroi Realistic | MRPS</div>
+
+  <div class="progress-bar" role="progressbar" aria-label="Индикатор загрузки">
+    <div class="progress"></div>
+  </div>
+
+  <div class="info" aria-live="polite">Добро пожаловать! Подключение к северам MRPS...</div>
+
+  <div class="marquee-container" aria-label="Логотипы метро">
+    <div class="marquee-track">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+      <!-- Повтор -->
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+    </div>
+  </div>
+
+  <audio id="background-audio" autoplay loop>
+    <source src="https://s742sas.storage.yandex.net/rdisk/d82cbcf4a273439f217eb04507cf37157d6bbf648847b7fcd16cd381169d79da/68424311/5m0tKvNudDarE80IDIJ_k0xHr3TgXZOK6bFchOxt2_geqyGKHA5lSSs8scvPlvCHPMMVoQgHje0mLOgmeRW5vg==?uid=0&filename=The_Just_Dancers_-_If_You_Wanna_Party_Just_Dance_2023_Edition_76415047.mp3&disposition=attachment&hash=iG/IuTyxkD1bvCXoniFZGHveO0JZV0bOTYIshuo8V0BV3eKVDpeKvVdFGIEfK8gvq/J6bpmRyOJonT3VoXnDag%3D%3D&limit=0&content_type=audio%2Fmpeg&owner_uid=1951883453&fsize=7725063&hid=338f7345302f2c978d3192fd1369287d&media_type=audio&tknv=v3&ts=636dd13da2640&s=6d2c850b4ecc28fafd5e4649eb92d3cdcb6036ce58ba30586188c00ba17b7194&pb=U2FsdGVkX1_I9kD1ANf-yPt12RZA1gitsBjVK0Dl6lQoZy09b07KfboG9sQpnYLo6bEgFYrF8c6ikfQNSakrO3I0r3Pp-dTDYl0rynhsCeI" type="audio/mpeg">
+    Ваш браузер не поддерживает воспроизведение музыки.
+  </audio>
+
+</body>
+</html>
