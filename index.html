@@ -1,191 +1,465 @@
-
-
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Загрузка MRPS</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TheFurrySamuraiFox — Официальный сайт</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      background: url('https://i.ibb.co/SwQ1Rfy5/20250126005214-1.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Montserrat', 'Segoe UI', sans-serif;
-      color: #fff;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      user-select: none;
-    }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #00aaff, #ff3333);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
 
-    .logo {
-      font-size: 56px;
-      font-weight: 600;
-      letter-spacing: 6px;
-      text-shadow:
-        0 0 8px rgba(0, 191, 255, 0.8),
-        0 0 20px rgba(0, 191, 255, 0.6),
-        0 0 30px rgba(0, 191, 255, 0.4);
-      margin-bottom: 40px;
-      animation: glow 3s ease-in-out infinite alternate;
-    }
+        h1, h2 {
+            color: #ff3333;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            font-family: 'Roboto', sans-serif;
+        }
 
-    @keyframes glow {
-      from {
-        text-shadow:
-          0 0 8px rgba(0, 191, 255, 0.8),
-          0 0 20px rgba(0, 191, 255, 0.6),
-          0 0 30px rgba(0, 191, 255, 0.4);
-      }
-      to {
-        text-shadow:
-          0 0 15px rgba(0, 191, 255, 1),
-          0 0 40px rgba(0, 191, 255, 0.8),
-          0 0 60px rgba(0, 191, 255, 0.6);
-      }
-    }
+        a {
+            text-decoration: none;
+            color: #3352ff;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-    .progress-bar {
-      width: 70%;
-      height: 14px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 0 8px rgba(0, 191, 255, 0.4) inset;
-      margin-bottom: 30px;
-      position: relative;
-    }
+        a:hover {
+            color: #ffffff;
+            transform: scale(1.1);
+        }
 
-    .progress {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #00bfff, #1e90ff, #00bfff);
-      border-radius: 10px;
-      animation: loading 6s ease-in-out infinite;
-      box-shadow:
-        0 0 8px #00bfff,
-        0 0 20px #1e90ff;
-    }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
 
-    @keyframes loading {
-      0% { width: 0%; }
-      50% { width: 85%; }
-      100% { width: 0%; }
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-    .info {
-      font-size: 16px;
-      opacity: 0.85;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-      margin-bottom: 60px;
-      font-weight: 500;
-    }
+        header {
+            text-align: center;
+            padding: 100px;
+            background-image: url('https://example.com/samurai_fox_image.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            z-index: 1;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
 
-    .marquee-container {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      height: 80px;
-      overflow: hidden;
-      background: rgba(0, 0, 0, 0.45);
-      box-shadow: 0 0 20px rgba(0, 191, 255, 0.5);
-      border-top: 1px solid rgba(0, 191, 255, 0.3);
-      border-bottom: 1px solid rgba(0, 191, 255, 0.3);
-      display: flex;
-      align-items: center;
-      padding-left: 10px;
-      user-select: none;
-    }
+        header h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #ff3333;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        }
 
-    .marquee-track {
-      display: flex;
-      width: max-content;
-      animation: scroll 40s linear infinite;
-    }
+        nav {
+            margin-top: 20px;
+        }
 
-    .marquee-track img {
-      height: 55px;
-      margin: 0 12px;
-      filter: drop-shadow(0 0 4px #00bfff);
-      pointer-events: none;
-      transition: transform 0.3s ease;
-    }
-    .marquee-track img:hover {
-      transform: scale(1.15);
-      filter: drop-shadow(0 0 8px #1e90ff);
-      cursor: default;
-    }
+        nav a {
+            margin: 0 25px;
+            font-size: 1.3rem;
+            color: #fff;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-  </style>
+        nav a:hover {
+            color: #ff3333;
+            transform: scale(1.2);
+        }
+
+        section {
+            padding: 50px;
+            margin: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+            text-align: left;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff3333;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .schedule-table th, .schedule-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #00aaff;
+            font-size: 1.2rem;
+        }
+
+        .schedule-table th {
+            background-color: #ff3333;
+        }
+
+        .schedule-table td {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .schedule-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .schedule-table td a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .schedule-table td a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        .links a {
+            display: inline-block;
+            background-color: #ff3333;
+            color: white;
+            padding: 14px 22px;
+            margin: 15px;
+            border-radius: 10px;
+            font-size: 1.3rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .links a:hover {
+            transform: scale(1.1);
+            background-color: #ff6600;
+        }
+
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer a {
+            color: #ffcc00;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            margin: 0 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .social-link img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            border: 2px solid #ff3333;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .scroll-animate.visible {
+            opacity: 1;
+        }
+
+        body.dark-mode {
+            background-color: #1a1a1a;
+            color: #d1d1d1;
+        }
+
+        #toggle-theme {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #ff3333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+        }
+
+        #toggle-theme:hover {
+            background-color: #ff6600;
+        }
+
+        /* Twitch clips container */
+        #twitch-clips div {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        #twitch-clips iframe {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        /* Реклама блок в контактах */
+        .ad-contact {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff3333;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .ad-contact img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid #ff3333;
+        }
+
+        .ad-contact a {
+            color: #ff3333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .ad-contact a:hover {
+            color: #ff6600;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                font-size: 1rem;
+                margin: 0 15px;
+            }
+
+            section {
+                margin: 20px;
+            }
+
+            .schedule-table {
+                font-size: 1rem;
+            }
+
+            .links a {
+                font-size: 1rem;
+                padding: 10px 18px;
+            }
+
+            .ad-contact {
+                flex-direction: column;
+                gap: 8px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="logo">Metrostroi Realistic | MRPS</div>
+<button id="toggle-theme">Сменить тему</button>
 
-  <div class="progress-bar" role="progressbar" aria-label="Индикатор загрузки">
-    <div class="progress"></div>
-  </div>
+<header class="fade-in">
+    <h1>TheFurrySamuraiFox</h1>
+    <nav>
+        <a href="#about">О стримере</a>
+        <a href="#schedule">Расписание</a>
+        <a href="#twitch-clips">Лучшие моменты</a>
+        <a href="#links">Ссылки</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+</header>
 
-  <div class="info" aria-live="polite">Добро пожаловать! Подключение к северам MRPS...</div>
+<section id="about" class="fade-in scroll-animate">
+    <h2>О стримере</h2>
+    <p>Я — TheFurrySamuraiFox 🦊⚔️, стример, который сочетает фурри-стиль с духом самурая! 💥🎮 Играю в экшены, ролевки и инди-игры, создавая крутая атмосфера для моих зрителей. 😎🔥 Присоединяйся, если хочешь весело провести время! 🎉</p>
+</section>
 
-  <div class="marquee-container" aria-label="Логотипы метро">
-    <div class="marquee-track">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
-      <!-- Повтор -->
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Moscow_Metro.svg/1280px-Moscow_Metro.svg.png" alt="Московское метро" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Логотип_метро_в_системе_бренда_московского_транспорта.svg/800px-Логотип_метро_в_системе_бренда_московского_транспорта.svg.png" alt="Московский транспорт" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mosmetro.svg/1280px-Mosmetro.svg.png" alt="Мосметро" />
+<section id="schedule" class="fade-in scroll-animate">
+    <h2>Расписание стримов</h2>
+    <table class="schedule-table">
+        <tr>
+            <th>День</th>
+            <th>Время (МСК)</th>
+            <th>Контент</th>
+            <th>Платформа</th>
+        </tr>
+        <tr> 
+            <td><a href="https://twitch.tv/TheFurrySamuraiFox" target="_blank">Вторник</a></td>
+            <td>16:00</td>
+            <td>Разговорный</td>
+            <td>Twitch</td>
+        </tr>
+        <tr>
+            <td><a href="https://twitch.tv/TheFurrySamuraiFox" target="_blank">Четверг</a></td>
+            <td>16:00</td>
+            <td>Разговорный</td>
+            <td>Twitch</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.youtube.com/@TheFurrySamuraiFox" target="_blank">Суббота иногда</a></td>
+            <td>15:00</td>
+            <td>Разговорный</td>
+            <td>YouTube</td>
+        </tr>
+        <tr>
+            <td><a href="https://www.youtube.com/@TheFurrySamuraiFox" target="_blank">Воскресенье</a></td>
+            <td>15:00</td>
+            <td>Разговорный</td>
+            <td>YouTube</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Чат Twitch -->
+<section id="twitch-chat" class="fade-in scroll-animate">
+    <h2>Чат Twitch</h2>
+    <div style="display: flex; justify-content: center;">
+    <iframe
+        src="https://www.twitch.tv/embed/TheFurrySamuraiFox/chat?parent=localhost:5500"
+        height="500"
+        width="100%"
+        allowfullscreen>
+    </iframe>
     </div>
-  </div>
+</section>
 
-  <audio id="background-audio" autoplay loop>
-    <source src="https://s742sas.storage.yandex.net/rdisk/d82cbcf4a273439f217eb04507cf37157d6bbf648847b7fcd16cd381169d79da/68424311/5m0tKvNudDarE80IDIJ_k0xHr3TgXZOK6bFchOxt2_geqyGKHA5lSSs8scvPlvCHPMMVoQgHje0mLOgmeRW5vg==?uid=0&filename=The_Just_Dancers_-_If_You_Wanna_Party_Just_Dance_2023_Edition_76415047.mp3&disposition=attachment&hash=iG/IuTyxkD1bvCXoniFZGHveO0JZV0bOTYIshuo8V0BV3eKVDpeKvVdFGIEfK8gvq/J6bpmRyOJonT3VoXnDag%3D%3D&limit=0&content_type=audio%2Fmpeg&owner_uid=1951883453&fsize=7725063&hid=338f7345302f2c978d3192fd1369287d&media_type=audio&tknv=v3&ts=636dd13da2640&s=6d2c850b4ecc28fafd5e4649eb92d3cdcb6036ce58ba30586188c00ba17b7194&pb=U2FsdGVkX1_I9kD1ANf-yPt12RZA1gitsBjVK0Dl6lQoZy09b07KfboG9sQpnYLo6bEgFYrF8c6ikfQNSakrO3I0r3Pp-dTDYl0rynhsCeI" type="audio/mpeg">
-    Ваш браузер не поддерживает воспроизведение музыки.
-  </audio>
+
+<section id="twitch-clips" class="fade-in scroll-animate">
+    <h2>Лучшие моменты с Twitch</h2>
+    <div>
+        <iframe
+            src="https://clips.twitch.tv/embed?clip=RelentlessDistinctLionBrainSlug-4-ib8OfPxICMRR_c&parent=thefurrysamuraifox.ru"
+            height="180"
+            width="320"
+            allowfullscreen>
+        </iframe>
+        <iframe
+            src="https://clips.twitch.tv/embed?clip=AmazingClipID2&parent=YOURDOMAIN.com"
+            height="180"
+            width="320"
+            allowfullscreen>
+        </iframe>
+        <iframe
+            src="https://clips.twitch.tv/embed?clip=AmazingClipID3&parent=YOURDOMAIN.com"
+            height="180"
+            width="320"
+            allowfullscreen>
+        </iframe>
+        <iframe
+            src="https://clips.twitch.tv/embed?clip=AmazingClipID4&parent=YOURDOMAIN.com"
+            height="180"
+            width="320"
+            allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<section id="links" class="fade-in scroll-animate">
+    <h2>Где найти меня?</h2>
+    <div class="social-links">
+        <a href="https://twitch.tv/TheFurrySamuraiFox" target="_blank" class="social-link">
+            <span>Twitch</span>
+        </a>
+        <a href="https://discord.gg/ZU2KGPC9QD" target="_blank" class="social-link">
+            <span>Discord</span>
+        </a>
+        <a href="https://t.me/thefurrysamuraifoxg" target="_blank" class="social-link">
+            <span>Telegram</span>
+        </a>
+    </div>
+</section>
+
+<section id="contact" class="fade-in scroll-animate" style="text-align: center;">
+    <h2>Контакты</h2>
+    <p>Discord: furrysamuraifoxg</p>
+
+    <div class="ad-contact" style="margin-top: 20px; display: inline-flex; flex-direction: column; align-items: center; gap: 15px;">
+        <img src="./img/99a56299-853f-4600-8158-7397868769ee.jpg" alt="TheFurrySamuraiFox" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" />
+        <a href="https://t.me/thefurrysamuraifoxg" target="_blank" rel="noopener noreferrer" style="font-size: 1.4rem; font-weight: bold; color: #3352ff; text-decoration: none;">Написать мне по рекламе</a>
+    </div>
+</section>
+
+    <p>Discord: furrysamuraifoxg</p>
+
+<footer>
+    © 2025 TheFurrySamuraiFox. Все права защищены.
+</footer>
+
+<script>
+    // Скрипт смены темы
+    const themeButton = document.getElementById('toggle-theme');
+    themeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
+    // Скролл-анимация
+    const sections = document.querySelectorAll('.scroll-animate');
+
+    window.addEventListener('scroll', () => {
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                section.classList.add('visible');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
