@@ -1,463 +1,179 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>TheFurrySamuraiFox — Официальный сайт</title>
-    <style>
-        /* Общие стили */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TheFurrySamuraiFox — Официальный сайт</title>
+<style>
+    * {
+        margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #00aaff, #ff3333);
+        color: white;
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+    h1,h2 {
+        color: #ff3333;
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        font-family: 'Roboto', sans-serif;
+    }
+    a { color: #3352ff; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    a:hover { color: #fff; transform: scale(1.1); }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #00aaff, #ff3333);
-            color: white;
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background-color 0.3s, color 0.3s;
-        }
+    header {
+        text-align: center;
+        padding: 80px 20px;
+        background: url('https://example.com/samurai_fox_image.jpg') center/cover no-repeat;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+    header h1 { font-size: 3rem; text-transform: uppercase; }
+    nav a { margin: 0 15px; font-size: 1.2rem; color: #fff; }
+    nav a:hover { color: #ff3333; transform: scale(1.2); }
 
-        h1, h2 {
-            color: #ff3333;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-            font-family: 'Roboto', sans-serif;
-        }
+    section {
+        padding: 30px;
+        margin: 20px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        transition: transform 0.3s;
+    }
+    section:hover { transform: translateY(-5px); }
 
-        a {
-            text-decoration: none;
-            color: #3352ff;
-            font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
+    .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(255,255,255,0.15);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .schedule-table th, .schedule-table td {
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #00aaff;
+        font-size: 1.1rem;
+    }
+    .schedule-table th {
+        background: #ff3333;
+        color: #fff;
+    }
+    .schedule-table td { background: rgba(255,255,255,0.1); }
+    .schedule-table tr:hover { background: rgba(255,255,255,0.25); }
+    .live-now {
+        background: #00ff99 !important;
+        color: #000 !important;
+        font-weight: bold;
+        animation: pulse 1s infinite alternate;
+    }
+    @keyframes pulse {
+        from { box-shadow: 0 0 10px #00ff99; }
+        to { box-shadow: 0 0 20px #00ff99; }
+    }
+    .status-tag {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+    .live { background: #00ff99; color: #000; }
+    .soon { background: #ffaa00; color: #000; }
+    .offline { background: #666; color: #fff; }
 
-        a:hover {
-            color: #ffffff;
-            transform: scale(1.1);
-        }
-
-        .fade-in {
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        header {
-            text-align: center;
-            padding: 100px;
-            background-image: url('https://example.com/samurai_fox_image.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            z-index: 1;
-            color: white;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        header h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #ff3333;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-        }
-
-        nav {
-            margin-top: 20px;
-        }
-
-        nav a {
-            margin: 0 25px;
-            font-size: 1.3rem;
-            color: #fff;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #ff3333;
-            transform: scale(1.2);
-        }
-
-        section {
-            padding: 50px;
-            margin: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
-            text-align: left;
-        }
-
-        section:hover {
-            transform: translateY(-10px);
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #ff3333;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-        }
-
-        section p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
-        }
-
-        .schedule-table th, .schedule-table td {
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #00aaff;
-            font-size: 1.2rem;
-        }
-
-        .schedule-table th {
-            background-color: #ff3333;
-        }
-
-        .schedule-table td {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .schedule-table tr:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-
-        .schedule-table td a {
-            color: inherit;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .schedule-table td a:hover {
-            text-decoration: underline;
-            color: #ffffff;
-        }
-
-        .links a {
-            display: inline-block;
-            background-color: #ff3333;
-            color: white;
-            padding: 14px 22px;
-            margin: 15px;
-            border-radius: 10px;
-            font-size: 1.3rem;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .links a:hover {
-            transform: scale(1.1);
-            background-color: #ff6600;
-        }
-
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 25px;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer a {
-            color: #ffcc00;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-        }
-
-        .social-link {
-            margin: 0 15px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .social-link img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-            border-radius: 50%;
-            border: 2px solid #ff3333;
-        }
-
-        .social-link:hover {
-            transform: scale(1.1);
-        }
-
-        .scroll-animate {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-        .scroll-animate.visible {
-            opacity: 1;
-        }
-
-        body.dark-mode {
-            background-color: #1a1a1a;
-            color: #d1d1d1;
-        }
-
-        #toggle-theme {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: #ff3333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            z-index: 1000;
-        }
-
-        #toggle-theme:hover {
-            background-color: #ff6600;
-        }
-
-        /* Twitch clips container */
-        #twitch-clips div {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        #twitch-clips iframe {
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
-        /* Реклама блок в контактах */
-        .ad-contact {
-            margin-top: 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #ff3333;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .ad-contact img {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border: 2px solid #ff3333;
-        }
-
-        .ad-contact a {
-            color: #ff3333;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .ad-contact a:hover {
-            color: #ff6600;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5rem;
-            }
-
-            nav a {
-                font-size: 1rem;
-                margin: 0 15px;
-            }
-
-            section {
-                margin: 20px;
-            }
-
-            .schedule-table {
-                font-size: 1rem;
-            }
-
-            .links a {
-                font-size: 1rem;
-                padding: 10px 18px;
-            }
-
-            .ad-contact {
-                flex-direction: column;
-                gap: 8px;
-                font-size: 1rem;
-            }
-        }
-    </style>
+    footer {
+        background: #003366;
+        text-align: center;
+        padding: 20px;
+        color: #fff;
+    }
+    .DragonGames {
+        text-align: center;
+        color: #fff;
+        background: #003366;
+        padding: 5px;
+    }
+    @media (max-width: 768px) {
+        header h1 { font-size: 2rem; }
+        nav a { font-size: 1rem; margin: 0 10px; }
+        .schedule-table th, .schedule-table td { font-size: 1rem; padding: 10px; }
+        section { margin: 10px; padding: 20px; }
+    }
+</style>
 </head>
 <body>
 
-<button id="toggle-theme">Сменить тему</button>
-
-<header class="fade-in">
+<header>
     <h1>TheFurrySamuraiFox</h1>
     <nav>
         <a href="#about">О стримере</a>
         <a href="#schedule">Расписание</a>
         <a href="#twitch-clips">Лучшие моменты</a>
-        <a href="#links">Ссылки</a>
+        <a href="links.html">Все ссылки</a>
+        <a href="#shop">Мерч</a>
         <a href="#contact">Контакты</a>
     </nav>
 </header>
 
-<section id="about" class="fade-in scroll-animate">
+<section id="about">
     <h2>О стримере</h2>
-    <p>Я — TheFurrySamuraiFox 🦊⚔️, стример, который сочетает фурри-стиль с духом самурая! 💥🎮 Играю в экшены, ролевки и инди-игры, создавая крутая атмосфера для моих зрителей. 😎🔥 Присоединяйся, если хочешь весело провести время! 🎉</p>
+    <p>Я — TheFurrySamuraiFox 🦊⚔️, стример, который сочетает фурри-стиль с духом самурая! 🎮🔥 Присоединяйся, если хочешь весело провести время!</p>
 </section>
 
-<section id="schedule" class="fade-in scroll-animate">
+<section id="schedule">
     <h2>Расписание стримов</h2>
-    <table class="schedule-table">
+    <table class="schedule-table" id="streamSchedule">
         <tr>
-            <th>День</th>
-            <th>Время (МСК)</th>
-            <th>Контент</th>
-            <th>Платформа</th>
+            <th>День</th><th>Время (МСК)</th><th>Контент</th><th>Платформа</th><th>Статус</th>
         </tr>
-        <tr> 
-            <td><a href="https://twitch.tv/TheFurrySamuraiFox" target="_blank">Вторник</a></td>
-            <td>16:00</td>
-            <td>Разговорный</td>
-            <td>Twitch</td>
-        </tr>
-        <tr>
-            <td><a href="https://twitch.tv/TheFurrySamuraiFox" target="_blank">Четверг</a></td>
-            <td>16:00</td>
-            <td>Разговорный</td>
-            <td>Twitch</td>
-        </tr>
-        <tr>
-            <td><a href="https://www.youtube.com/@TheFurrySamuraiFox" target="_blank">Суббота иногда</a></td>
-            <td>15:00</td>
-            <td>Разговорный</td>
-            <td>YouTube</td>
-        </tr>
-        <tr>
-            <td><a href="https://www.youtube.com/@TheFurrySamuraiFox" target="_blank">Воскресенье</a></td>
-            <td>15:00</td>
-            <td>Разговорный</td>
-            <td>YouTube</td>
-        </tr>
+        <tr data-day="2" data-time="17:00"><td>Вторник</td><td>17:00</td><td>Разговорный</td><td>Twitch</td><td class="status"></td></tr>
+        <tr data-day="4" data-time="16:00"><td>Четверг</td><td>16:00</td><td>Разговорный</td><td>Twitch</td><td class="status"></td></tr>
+        <tr data-day="6" data-time="15:00"><td>Суббота</td><td>15:00</td><td>Разговорный</td><td>YouTube</td><td class="status"></td></tr>
+        <tr data-day="0" data-time="15:00"><td>Воскресенье</td><td>15:00</td><td>Разговорный</td><td>YouTube</td><td class="status"></td></tr>
     </table>
 </section>
 
-<!-- Чат Twitch -->
-<section id="twitch-chat" class="fade-in scroll-animate">
-    <h2>Чат Twitch</h2>
-    <div style="display: flex; justify-content: center;">
-    <iframe
-        src="https://www.twitch.tv/embed/TheFurrySamuraiFox/chat?parent=DragonGames14.github.io"
-        height="500"
-        width="100%"
-        allowfullscreen>
-    </iframe>
-    </div>
-</section>
-
-
-<section id="twitch-clips" class="fade-in scroll-animate">
-    <h2>Лучшие моменты с Twitch</h2>
-    <div>
-        <iframe
-            src="https://clips.twitch.tv/embed?clip=RelentlessDistinctLionBrainSlug-4-ib8OfPxICMRR_c&parent=DragonGames14.github.io"
-            height="180"
-            width="320"
-            allowfullscreen>
-        </iframe>
-        <iframe
-            src="https://clips.twitch.tv/embed?clip=BillowingBashfulOrcaDoritosChip-O2URjDtqr-KUBG3P&parent=DragonGames14.github.io"
-            height="180"
-            width="320"
-            allowfullscreen>
-        </iframe>
-        <iframe
-            src="https://clips.twitch.tv/embed?clip=FaintStrangeMagpieWow-M7zjyngHg8ZLjYQG&parent=DragonGames14.github.io"
-            height="180"
-            width="320"
-            allowfullscreen>
-        </iframe>
-        <iframe
-            src="https://clips.twitch.tv/embed?clip=RichDifficultAlfalfaCharlietheUnicorn-1aPdBTbeTqUW6ZNf&parent=DragonGames14.github.io"
-            height="180"
-            width="320"
-            allowfullscreen>
-        </iframe>
-    </div>
-</section>
-
-<section id="links" class="fade-in scroll-animate">
-    <h2>Где найти меня?</h2>
-    <div class="social-links">
-        <a href="https://twitch.tv/TheFurrySamuraiFox" target="_blank" class="social-link">
-            <span>Twitch</span>
-        </a>
-        <a href="https://discord.gg/ZU2KGPC9QD" target="_blank" class="social-link">
-            <span>Discord</span>
-        </a>
-        <a href="https://t.me/thefurrysamuraifoxg" target="_blank" class="social-link">
-            <span>Telegram</span>
-        </a>
-    </div>
-</section>
-
-<section id="contact" class="fade-in scroll-animate" style="text-align: center;">
+<section id="contact" style="text-align:center;">
     <h2>Контакты</h2>
-    <p>Discord: furrysamuraifoxg</p>
-
-    <div class="ad-contact" style="margin-top: 20px; display: inline-flex; flex-direction: column; align-items: center; gap: 15px;">
-        <img src="./99a56299-853f-4600-8158-7397868769ee.jpg" alt="TheFurrySamuraiFox" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover;" />
-        <a href="https://t.me/thefurrysamuraifoxg" target="_blank" rel="noopener noreferrer" style="font-size: 1.4rem; font-weight: bold; color: #3352ff; text-decoration: none;">Написать мне по рекламе</a>
+    <div>
+        <img src="./99a56299-853f-4600-8158-7397868769ee.jpg" alt="TheFurrySamuraiFox" style="width:150px;border-radius:50%;"><br>
+        <a href="https://t.me/thefurrysamuraifoxg" target="_blank">Написать мне по рекламе</a>
     </div>
 </section>
 
-    <p>Discord: furrysamuraifoxg</p>
-
-<footer>
-    © 2025 TheFurrySamuraiFox. Все права защищены.
-</footer>
+<footer>© 2025 TheFurrySamuraiFox. Все права защищены.</footer>
+<p class="DragonGames">by Dragon Games</p>
 
 <script>
-    // Скрипт смены темы
-    const themeButton = document.getElementById('toggle-theme');
-    themeButton.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-    });
+    // Скрипт подсветки актуального стрима
+    const now = new Date();
+    const currentDay = now.getDay(); // 0-вс,1-пн,2-вт...
+    const currentTime = now.getHours() * 60 + now.getMinutes();
 
-    // Скролл-анимация
-    const sections = document.querySelectorAll('.scroll-animate');
+    document.querySelectorAll("#streamSchedule tr[data-day]").forEach(row => {
+        const day = parseInt(row.dataset.day);
+        const [h, m] = row.dataset.time.split(":").map(Number);
+        const streamTime = h * 60 + m;
+        const statusCell = row.querySelector(".status");
 
-    window.addEventListener('scroll', () => {
-        sections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                section.classList.add('visible');
+        if (day === currentDay) {
+            if (Math.abs(currentTime - streamTime) < 120) {
+                row.classList.add("live-now");
+                statusCell.innerHTML = '<span class="status-tag live">СТРИМ ИДЁТ!</span>';
+            } else if (currentTime < streamTime) {
+                statusCell.innerHTML = '<span class="status-tag soon">СКОРО</span>';
+            } else {
+                statusCell.innerHTML = '<span class="status-tag offline">ОФФЛАЙН</span>';
             }
-        });
+        } else if ((day - currentDay + 7) % 7 === 1) {
+            statusCell.innerHTML = '<span class="status-tag soon">СКОРО</span>';
+        } else {
+            statusCell.innerHTML = '<span class="status-tag offline">ОФФЛАЙН</span>';
+        }
     });
 </script>
 
